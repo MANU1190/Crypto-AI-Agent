@@ -1,0 +1,20 @@
+import requests
+
+API_KEY = "tgp_v1__RIq1Lo4_SEpcnMnCLOhbQv8Uajg_7X3dUaM2fXrHUY"  # Replace with your actual key
+
+# Test API URL
+url = "https://api.together.xyz/v1/models"
+
+# Headers
+headers = {
+    "Authorization": f"Bearer {API_KEY}",
+    "Content-Type": "application/json",
+}
+
+try:
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()
+    print("API is working! Available models:")
+    print(response.json())  # Print the list of available models
+except requests.RequestException as e:
+    print(f"API request failed: {str(e)}")
